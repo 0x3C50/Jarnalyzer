@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'me.x150'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+configurations {
+    include
+}
+dependencies {
+
+    include 'org.ow2.asm:asm:9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+//    include files("./libs/javassist.jar")
+    include 'org.fusesource.jansi:jansi:2.4.0'
+    configurations.include.dependencies.each {
+        implementation(it)
+    }
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    from {
+        configurations.include.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes(
+                "Main-Class": "jarnalyzer/Main"
+        )
+    }
+}
