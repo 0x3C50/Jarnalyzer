@@ -17,9 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import static org.fusesource.jansi.Ansi.Color.GREEN;
-import static org.fusesource.jansi.Ansi.Color.RED;
-import static org.fusesource.jansi.Ansi.Color.WHITE;
+import static org.fusesource.jansi.Ansi.Color.*;
 import static org.fusesource.jansi.Ansi.ansi;
 
 public class Main {
@@ -88,8 +86,7 @@ public class Main {
         }
         for (Logger.SuspicionLevel value : Logger.SuspicionLevel.values()) {
             int count = v.get(value).get();
-            System.out.println(ansi().fg(value.c).a("[ " + value.name() + " ]").fg(WHITE).a(" ".repeat(longest - value.name().length())).a("  " + count + " event" + (count != 1 ? "s" : "")));
+            Logger.log(ansi().fg(value.c).a("[ " + value.name() + " ]").fg(WHITE).a(" ".repeat(longest - value.name().length())).a("  " + count + " event" + (count != 1 ? "s" : "")));
         }
-
     }
 }

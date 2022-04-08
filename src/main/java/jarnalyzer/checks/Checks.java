@@ -1,11 +1,6 @@
 package jarnalyzer.checks;
 
-import jarnalyzer.checks.impl.CustomClassLoaderCheck;
-import jarnalyzer.checks.impl.InvalidIdentifierCheck;
-import jarnalyzer.checks.impl.LinkReferenceCheck;
-import jarnalyzer.checks.impl.ReflectionCheck;
-import jarnalyzer.checks.impl.RuntimeReferenceCheck;
-import jarnalyzer.checks.impl.TypeConfusionCheck;
+import jarnalyzer.checks.impl.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +10,7 @@ public class Checks {
 
     static void init() {
         if (checks.isEmpty()) {
-            checks.addAll(List.of(new LinkReferenceCheck(), new ReflectionCheck(), new TypeConfusionCheck(), new InvalidIdentifierCheck(), new RuntimeReferenceCheck(), new CustomClassLoaderCheck()));
+            checks.addAll(List.of(new LinkReferenceCheck(), new FileReferenceCheck(), new ReflectionCheck(), new TypeConfusionCheck(), new InvalidIdentifierCheck(), new RuntimeReferenceCheck(), new CustomClassLoaderCheck()));
         }
     }
 

@@ -16,9 +16,7 @@ public class RuntimeReferenceCheck implements Check {
     @Override public void checkJarEntry(JarFile src, JarEntry je) {
 
     }
-    void a() throws Exception {
-        new ProcessBuilder("ls").inheritIO().start().waitFor();
-    }
+
     @Override public void checkClassFile(ClassNode classFile) throws Exception {
         for (MethodNode method : classFile.methods) {
             for (AbstractInsnNode instruction : method.instructions) {
