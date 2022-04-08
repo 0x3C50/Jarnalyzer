@@ -13,6 +13,7 @@ configurations {
 }
 dependencies {
 
+    include 'org.ow2.asm:asm-tree:9.2'
     include 'org.ow2.asm:asm:9.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
@@ -38,4 +39,5 @@ jar {
                 "Main-Class": "jarnalyzer/Main"
         )
     }
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
